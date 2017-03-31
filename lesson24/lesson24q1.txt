@@ -1,0 +1,11 @@
+var firstlast : string := ""
+var word : string
+put "Enter the word done you're done lmao."
+loop
+    put "Please enter a word: " ..
+    get word
+    exit when word = "done"
+    if length (word) >= 2 then
+        put word (1 .. 1), word (* .. *)
+    end if
+end loop
