@@ -1,0 +1,11 @@
+var word : array 1 .. 10 of string
+var dank : int :=0
+for i : 1 .. 10
+    put "Give me a word."
+    get word (i)
+end for
+for i : 1 .. 10
+    dank += length (word (i))
+end for
+
+put "Average is ", dank / 10, "."
