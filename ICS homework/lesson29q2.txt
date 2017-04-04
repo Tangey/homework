@@ -1,0 +1,9 @@
+var random:int
+const dank:=90
+var number:int:=0
+for i: 1..dank
+randint(random,1,100)
+number+=1
+exit when random>dank
+end for
+put "It took ", number, " times to reach ", random, "."
