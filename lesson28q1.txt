@@ -1,0 +1,12 @@
+var random : int
+var word : string
+for i : 1 .. 5
+    randint (random, 1, 10)
+    put "Please enter a word that is ", random, " letters long."
+    get word
+    if random > length (word) then
+        put "You did not enter a word that is the correct length."
+    elsif random < length (word) then
+        put "You did not enter a word that is the correct length."
+    end if
+end for
