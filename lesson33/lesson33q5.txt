@@ -1,0 +1,23 @@
+function reverse (word : string) : string
+    var reverse : string := ""
+    for decreasing i : length (word) .. 1
+        reverse += word (i)
+    end for
+    result reverse
+end reverse
+
+function gluestring (word, word1 : string) : string
+    result word + word1
+end gluestring
+
+var word, word1, word2, amalgamation : string
+put "Give me a word."
+get word
+put "Give me another word."
+get word1
+put "Another one."
+get word2
+word := reverse (word)
+word1 := reverse (word1)
+amalgamation := word + word1 + word2
+put amalgamation

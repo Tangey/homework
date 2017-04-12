@@ -1,0 +1,14 @@
+function isSeven (number : int) : boolean
+    if number mod 7 = 0 then
+        result true
+    else
+        result false
+    end if
+end isSeven
+
+var number : int := 69
+if isSeven (number) then
+    put "Your number is a multiple of seven."
+else
+    put "Your number is not a multiple of seven."
+end if
