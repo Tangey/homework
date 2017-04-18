@@ -1,0 +1,13 @@
+procedure stars (line_number : int)
+    for i : 1 .. line_number
+        put "*****"
+    end for
+end stars
+
+stars (7)
+
+var numstars : int
+
+put "How many lines of stars would you like?"
+get numstars
+stars (numstars)

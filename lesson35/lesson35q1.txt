@@ -1,0 +1,4 @@
+for decreasing i : 5 .. 1
+    put repeat ("%", i) ..
+    put repeat ("&", i)
+end for

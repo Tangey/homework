@@ -1,0 +1,9 @@
+var word : string := "dank"
+var n : int := 5
+procedure wordn (word : string, n : int)
+    for i : 1 .. n
+        put word
+    end for
+end wordn
+
+wordn (word, n)

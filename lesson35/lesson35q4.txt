@@ -1,0 +1,70 @@
+var shape : string
+var aorp : string
+var l, w, b, h, s1, s2, s3, r : real := 0
+procedure aRectangle (l, w : real)
+    put l * w
+end aRectangle
+procedure pRectangle (l, w : real)
+    put l + l + w + w
+end pRectangle
+procedure aTriangle (b, h : real)
+    put b * h / 2
+end aTriangle
+procedure pTriangle (s1, s2, s3 : real)
+    put s1 + s2 + s3
+end pTriangle
+procedure pCircle (r : real)
+    put r * 2 * 3.14
+end pCircle
+procedure aCircle (r : real)
+    put 3.14 * r ** 2
+end aCircle
+put "Tell me which shape you want. Please enter your response in all undercase letters."
+get shape
+if shape = "rectangle" then
+    put "What is the width?"
+    get w
+    put "What is the length?"
+    get l
+    put "Are you going to calculate the area or perimeter? Please enter your response in all undercase letters."
+    get aorp
+    if aorp = "area" then
+        aRectangle (l, w)
+    elsif aorp = "perimeter" then
+        pRectangle (l, w)
+    else
+        put "no bamboozle pls"
+    end if
+elsif shape = "triangle" then
+    put "What is the base length?"
+    get b
+    put "What is the height?"
+    get h
+    put "What is the length of the 1st side?"
+    get s1
+    put "What is the length of the 2nd side?"
+    get s2
+    put "What is the length of the 3rd side?"
+    get s3
+    put "Are you going to calculate the area or perimeter? Please enter your response in all undercase letters."
+    get aorp
+    if aorp = "area" then
+        aTriangle (b, h)
+    elsif aorp = "perimeter" then
+        pTriangle (s1, s2, s3)
+    else
+        put "no bamboozle pls"
+    end if
+elsif shape = "circle" then
+    put "What is the radius?"
+    get r
+    put "Are you going to calculate the area or perimeter? Please enter your response in all undercase letters."
+    get aorp
+    if aorp = "area" then
+        aCircle (r)
+    elsif aorp = "perimeter" then
+        pCircle (r)
+    else
+        put "no bamboozle pls"
+    end if
+end if
