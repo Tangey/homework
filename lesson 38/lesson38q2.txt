@@ -1,0 +1,27 @@
+import GUI
+
+var text1, text2 : int
+
+procedure enterword (word : string)
+    var newword : string := ""
+    for i : 1 .. length (word)
+        if index ("aeiouAEIOU", word (i)) = 0 then
+            newword += word (i)
+        end if
+    end for
+    GUI.SetText (text2, newword)
+end enterword
+
+procedure newword (word : string)
+end newword
+
+text1 := GUI.CreateTextField (100, 30, 100, "", enterword)
+var text1Label : int := GUI.CreateLabel (100, 30 + GUI.GetHeight (text1), "Enter a word.")
+
+text2 := GUI.CreateTextField (400, 30, 100, "", newword)
+
+var quitButton : int := GUI.CreateButton (300, 30, 80, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop

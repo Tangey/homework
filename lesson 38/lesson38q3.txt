@@ -1,0 +1,15 @@
+import GUI
+var t1 : int
+procedure add1 (number : string)
+    var newnumber : real := strreal (number) + 1
+    GUI.SetText (t1, realstr(newnumber,1))
+end add1
+
+t1 := GUI.CreateTextField (10, 100, 200, "", add1)
+var textFieldLabel : int := GUI.CreateLabel (10, 100 + GUI.GetHeight (t1), "Enter a number.")
+
+var quitButton : int := GUI.CreateButton (300, 30, 80, "Quit", GUI.Quit)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
