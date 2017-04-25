@@ -1,1 +1,1 @@
-# homework
+IGNORE THE ICS HOMEWORK FOLDER
