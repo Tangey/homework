@@ -15,8 +15,8 @@ procedure dummyProc (textFieldContents : string)
 end dummyProc
 
 procedure moveToTextField1
-    if GUI.GetText (textField2) not= "" then
-        var temp : string := GUI.GetText (textField2)
+    var temp : string := GUI.GetText (textField2)
+    if strrealok (temp) then
         var convert : real := strreal (temp) * 2
         GUI.SetText (textField, realstr (convert, 2))
     else
@@ -25,8 +25,8 @@ procedure moveToTextField1
 end moveToTextField1
 
 procedure moveToTextField2
-    if GUI.GetText (textField) not= "" then
-        var temp : string := GUI.GetText (textField)
+    var temp : string := GUI.GetText (textField)
+    if strrealok (temp) then
         var convert : real := strreal (temp) / 2
         GUI.SetText (textField2, realstr (convert, 2))
     else
