@@ -1,0 +1,53 @@
+import GUI
+
+GUI.SetBackgroundColour (gray)
+
+var moveButton : int
+var moveButton2 : int
+var textField : int
+var textField2 : int
+var quitButton : int
+var textFieldLabel : int
+var textFieldLabel2 : int
+
+
+procedure dummyProc (textFieldContents : string)
+end dummyProc
+
+procedure moveToTextField1
+    if GUI.GetText (textField2) not= "" then
+        var temp : string := GUI.GetText (textField2)
+        var convert : real := strreal (temp) * 2
+        GUI.SetText (textField, realstr (convert, 2))
+    else
+        GUI.SetText (textField2, "You didn't enter a number.")
+    end if
+end moveToTextField1
+
+procedure moveToTextField2
+    if GUI.GetText (textField) not= "" then
+        var temp : string := GUI.GetText (textField)
+        var convert : real := strreal (temp) / 2
+        GUI.SetText (textField2, realstr (convert, 2))
+    else
+        GUI.SetText (textField, "You didn't enter a number.")
+    end if
+end moveToTextField2
+
+textField := GUI.CreateTextField (10, 30, 200, "", dummyProc)
+textField2 := GUI.CreateTextField (400, 30, 200, "", dummyProc)
+
+
+textFieldLabel := GUI.CreateLabel (10, 30 +
+    GUI.GetHeight (textField), "Celsius")
+
+textFieldLabel2 := GUI.CreateLabel (400, 30 + GUI.GetHeight (textField2), "Fahrenheit")
+
+quitButton := GUI.CreateButton (250, 130, 80, "Quit", GUI.Quit)
+
+moveButton := GUI.CreateButton (250, 30, 80, "Convert to F ->", moveToTextField2)
+
+moveButton2 := GUI.CreateButton (250, 60, 80, "<- Convert to C", moveToTextField1)
+loop
+    exit when GUI.ProcessEvent
+end loop

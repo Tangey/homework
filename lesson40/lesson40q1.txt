@@ -1,0 +1,81 @@
+import GUI
+
+%variables
+var guessbutton : int
+var growbutton : int
+var guessgame : int
+var growgame : int
+var guessdummy : int
+var backbutton : int
+var quitbutton : int := GUI.CreateButton (550, 5, 10, "Quit", GUI.Quit)
+
+%buttons
+procedure startguess
+    GUI.Hide (growbutton)
+    GUI.Hide (guessbutton)
+    GUI.Show (guessgame)
+    GUI.Show (guessdummy)
+    GUI.Show (backbutton)
+end startguess
+
+procedure startgrow
+    GUI.Hide (growbutton)
+    GUI.Hide (guessbutton)
+    GUI.Show (growgame)
+    GUI.Show (backbutton)
+end startgrow
+
+procedure back
+    GUI.Show (growbutton)
+    GUI.Show (guessbutton)
+    GUI.Show (quitbutton)
+    GUI.Hide (guessgame)
+    GUI.Hide (growgame)
+    GUI.Hide (backbutton)
+    GUI.Hide (guessdummy)
+end back
+%growing procedure
+procedure grow
+    var height : int := GUI.GetHeight (growgame) + 1
+    var width : int := GUI.GetWidth (growgame) + 1
+    GUI.SetSize (growgame, width, height)
+end grow
+%guessing procedure
+procedure dummy (lmao : string)
+end dummy
+
+var random : int
+randint (random, 1, 100)
+
+procedure guess (number : string)
+    if strrealok (number) then
+        if strreal (number) > random then
+            GUI.SetText (guessdummy, "Lower.")
+        elsif strreal (number) < random then
+            GUI.SetText (guessdummy, "Higher.")
+        elsif strreal (number) = random then
+            GUI.SetText (guessdummy, "You got it right!")
+        end if
+    else
+        GUI.SetText (guessgame, "That isn't a valid number.")
+    end if
+end guess
+
+%guess program
+guessbutton := GUI.CreateButton (10, 350, 200, "Start the guessing game!", startguess)
+guessgame := GUI.CreateTextField (10, 30, 200, "Guess a number between 1 and 100!", guess)
+guessdummy := GUI.CreateTextField (300, 30, 200, "", dummy)
+%grow program
+growbutton := GUI.CreateButton (300, 350, 200, "Start the growing game!", startgrow)
+growgame := GUI.CreateButton (10, 30, 100, "Click this button!", grow)
+%back program
+backbutton := GUI.CreateButton (550, 30, 10, "Go back", back)
+%hidden stuff
+GUI.Hide (guessgame)
+GUI.Hide (guessdummy)
+GUI.Hide (growgame)
+GUI.Hide (backbutton)
+
+loop
+    exit when GUI.ProcessEvent
+end loop
