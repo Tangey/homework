@@ -56,13 +56,16 @@ procedure guess (number : string)
     if strrealok (number) then
         if strreal (number) > random then
             GUI.SetText (guessdummy, "Lower.")
+            GUI.SetText (guessgame, "")
         elsif strreal (number) < random then
             GUI.SetText (guessdummy, "Higher.")
+            GUI.SetText (guessgame, "")
         elsif strreal (number) = random then
             GUI.SetText (guessdummy, "You got it right!")
         end if
     else
-        GUI.SetText (guessgame, "That isn't a valid number.")
+        GUI.SetText (guessgame, "")
+        GUI.SetText (guessdummy, "That isn't a valid number.")
     end if
 end guess
 
