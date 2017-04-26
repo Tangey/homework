@@ -1,5 +1,6 @@
 import GUI
 
+GUI.SetBackgroundColor (gray)
 %variables
 var guessbutton : int
 var growbutton : int
@@ -16,6 +17,7 @@ procedure startguess
     GUI.Show (guessgame)
     GUI.Show (guessdummy)
     GUI.Show (backbutton)
+    GUI.SetBackgroundColor (blue)
 end startguess
 
 procedure startgrow
@@ -23,6 +25,7 @@ procedure startgrow
     GUI.Hide (guessbutton)
     GUI.Show (growgame)
     GUI.Show (backbutton)
+    GUI.SetBackgroundColor (green)
 end startgrow
 
 procedure back
@@ -33,6 +36,7 @@ procedure back
     GUI.Hide (growgame)
     GUI.Hide (backbutton)
     GUI.Hide (guessdummy)
+    GUI.SetBackgroundColor (green)
 end back
 %growing procedure
 procedure grow
@@ -43,9 +47,6 @@ end grow
 %guessing procedure
 procedure dummy (lmao : string)
 end dummy
-
-var random : int
-randint (random, 1, 100)
 
 procedure guess (number : string)
     if strrealok (number) then
@@ -71,11 +72,7 @@ growgame := GUI.CreateButton (10, 30, 100, "Click this button!", grow)
 %back program
 backbutton := GUI.CreateButton (550, 30, 10, "Go back", back)
 %hidden stuff
-GUI.Hide (guessgame)
-GUI.Hide (guessdummy)
-GUI.Hide (growgame)
-GUI.Hide (backbutton)
-
+back
 loop
     exit when GUI.ProcessEvent
 end loop
