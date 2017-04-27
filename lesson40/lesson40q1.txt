@@ -30,6 +30,7 @@ procedure startgrow
 end startgrow
 
 procedure back
+    GUI.SetSize (growgame, 100, 100)
     GUI.Show (growbutton)
     GUI.Show (guessbutton)
     GUI.Show (quitbutton)
@@ -83,3 +84,4 @@ back
 loop
     exit when GUI.ProcessEvent
 end loop
+
