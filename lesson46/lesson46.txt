@@ -1,0 +1,14 @@
+var temps : array 1 .. 10 of real
+var total : real := 0
+for i : 1 .. 10
+    put "Give me a temperature."
+    get temps (i)
+    cls
+    total += temps (i)
+end for
+
+for decreasing i : 10 .. 1
+    put "It was ", temps (i), " on day ", i, "."
+end for
+
+put "The average temperature for each day was: ", total / 10, "."
