@@ -1,0 +1,49 @@
+var rolled : array 2 .. 12 of int := init (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+var sum : array 1 .. 50 of int
+var d1, d2 : int
+var sumchoice : int
+for i : 1 .. 50
+    randint (d1, 1, 6)
+    randint (d2, 1, 6)
+    sum (i) := d1 + d2
+end for
+
+for i : 1 .. 50
+    if sum (i) = 2 then
+        rolled (2) += 1
+    elsif sum (i) = 3 then
+        rolled (3) += 1
+    elsif sum (i) = 4 then
+        rolled (4) += 1
+    elsif sum (i) = 5 then
+        rolled (5) += 1
+    elsif sum (i) = 6 then
+        rolled (6) += 1
+    elsif sum (i) = 7 then
+        rolled (7) += 1
+    elsif sum (i) = 8 then
+        rolled (8) += 1
+    elsif sum (i) = 9 then
+        rolled (9) += 1
+    elsif sum (i) = 10 then
+        rolled (10) += 1
+    elsif sum (i) = 11 then
+        rolled (11) += 1
+    elsif sum (i) = 12 then
+        rolled (12) += 1
+    end if
+end for
+
+loop
+    put "What sum would you like to know about? Put 0 to exit the program."
+    get sumchoice
+    cls
+    exit when sumchoice = 0
+    if sumchoice <= 1 or sumchoice > 12 then
+        put "Sorry that isn't a valid choice."
+    else
+        put "The number ", sumchoice, " appeared ", rolled (sumchoice), " times."
+    end if
+end loop
+
+put "Program ended."
